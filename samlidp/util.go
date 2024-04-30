@@ -19,6 +19,10 @@ func randomBytes(n int) []byte {
 	return rv
 }
 
+func GetSPMetadata(r io.Reader) (spMetadata *saml.EntityDescriptor, err error) {
+	return getSPMetadata(r)
+}
+
 func getSPMetadata(r io.Reader) (spMetadata *saml.EntityDescriptor, err error) {
 	var data []byte
 	if data, err = io.ReadAll(r); err != nil {
